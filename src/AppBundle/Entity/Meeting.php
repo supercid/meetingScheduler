@@ -56,6 +56,21 @@ class Meeting
      */
     private $description;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Person")
+     * @ORM\JoinTable(name="meeting_person",
+     *      joinColumns={@ORM\JoinColumn(name="meeting_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="person_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $participants;
+
+    public function __construct()
+    {
+        $this->participants = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
 
     /**
      * Get id
@@ -186,5 +201,39 @@ class Meeting
     {
         return $this->description;
     }
-}
 
+
+    /**
+     * Add participant
+     *
+     * @param \AppBundle\Entity\Person $participant
+     *
+     * @return Meeting
+     */
+    public function addParticipant(\AppBundle\Entity\Person $participant)
+    {
+        $this->participants[] = $participant;
+
+        return $this;
+    }
+
+    /**
+     * Remove participant
+     *
+     * @param \AppBundle\Entity\Person $participant
+     */
+    public function removeParticipant(\AppBundle\Entity\Person $participant)
+    {
+        $this->participants->removeElement($participant);
+    }
+
+    /**
+     * Get participants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
+}

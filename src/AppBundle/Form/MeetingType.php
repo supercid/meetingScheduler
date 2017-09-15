@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class MeetingType extends AbstractType
 {
@@ -13,9 +14,19 @@ class MeetingType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('startTime')->add('endTime')->add('location')->add('description');
+        $builder
+        ->add('name')
+        ->add('startTime')
+        ->add('endTime')
+        ->add('location')
+        ->add('description')
+        ->add('participants', EntityType::class, array(
+                'class' => 'AppBundle:Person',
+                'choice_label' => 'name'
+            )
+        );
     }
-    
+
     /**
      * {@inheritdoc}
      */
