@@ -22,7 +22,8 @@ class MeetingType extends AbstractType
         ->add('description')
         ->add('participants', EntityType::class, array(
                 'class' => 'AppBundle:Person',
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'mapped' => false
             )
         );
     }

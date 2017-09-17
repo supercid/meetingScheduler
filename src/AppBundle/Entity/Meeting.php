@@ -60,7 +60,7 @@ class Meeting
      * @ORM\ManyToMany(targetEntity="Person")
      * @ORM\JoinTable(name="meeting_person",
      *      joinColumns={@ORM\JoinColumn(name="meeting_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="person_id", referencedColumnName="id", unique=true)}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="person_id", referencedColumnName="id", unique=true, nullable=true)}
      *      )
      */
     private $participants;
