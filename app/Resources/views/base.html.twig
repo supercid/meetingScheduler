@@ -1,19 +1,93 @@
 <!DOCTYPE html>
 <html>
+{% block header %}
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-            <link rel='stylesheet' href={{asset('assets/vendor/fullcalendar/dist/fullcalendar.css') }}/>
-        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+        <title>{% block title %}{{'Meeting Scheduler Demo App'|title}}{% endblock %}</title>
+
+        {% block stylesheets %}
+
+            <!-- Google Fonts -->
+            <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+            <!-- Bootstrap Core Css -->
+            <link rel="stylesheet" href="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css') }}">
+
+             <!-- Bootstrap Select Css -->
+            <link rel="stylesheet" href="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/bootstrap-select/css/bootstrap-select.css') }}">
+
+            <!-- Waves Effect Css -->
+            <link rel="stylesheet" href="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/node-waves/waves.css') }}">
+
+            <!-- Animation Css -->
+            <link rel="stylesheet" href="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/animate-css/animate.min.css') }}">
+
+            <!-- Custom Css -->
+            <link rel="stylesheet" href="{{ asset('assets/vendor/adminbsb-materialdesign/css/style.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('assets/vendor/adminbsb-materialdesign/css/themes/all-themes.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}">
+
+        {% endblock %} {# Folhas de estilo #}
+
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}
-            <script src={{asset('assets/vendor/jquery/dist/jquery.min.js')}}></script>
-            <script src={{asset('assets/vendor/moment/min/moment.min.js')}}></script>
-            <script src={{asset('assets/vendor/fullcalendar/dist/fullcalendar.js')}}></script>
-        {% endblock %}
+{% endblock %} {# Header #}
+    <body class="theme-red">
+        <!-- Page Loader -->
+        <div class="page-loader-wrapper">
+            <div class="loader">
+                <div class="preloader">
+                    <div class="spinner-layer pl-red">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <p>Loading...</p>
+            </div>
+        </div>
+        <!-- #END# Page Loader -->
+        <!-- Overlay For Sidebars -->
+        <div class="overlay"></div>
+        <!-- #END# Overlay For Sidebars -->
+
+        {{ include ('navbar.html.twig') }}
+        {{ include ('sidebar.html.twig') }}
+
+
+    {% block body %}
+    {% endblock %}
+
+            {% block javascripts %}
+                <!-- Jquery Core Js -->
+
+                <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/momentjs/moment.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/jquery/jquery.min.js') }}"></script>
+
+                <!-- Bootstrap Core Js -->
+                <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+
+                <!-- Waves Effect Plugin Js -->
+                <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/node-waves/waves.js') }}"></script>
+
+                <!-- Custom Js -->
+                <script src="{{ asset('assets/vendor/adminbsb-materialdesign/js/admin.js') }}"></script>
+                <script src="{{ asset('assets/vendor/adminbsb-materialdesign/js/pages/index.js') }}"></script>
+
+                <!-- Demo Js -->
+                <script src="{{ asset('assets/vendor/adminbsb-materialdesign/js/demo.js') }}"></script>
+
+           {% endblock %} {# End Javascripts #}
     </body>
 </html>
