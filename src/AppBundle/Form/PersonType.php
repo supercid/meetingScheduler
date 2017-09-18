@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class PersonType extends AbstractType
 {
@@ -13,9 +14,15 @@ class PersonType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('socialSecurityNumber')->add('age')->add('gender');
+        $builder
+        ->add('name')
+        ->add('socialSecurityNumber')
+        ->add('age')
+        ->add('gender', ChoiceType::class, array(
+            'choices' => array('Male' => 'Male', 'Female' => 'Female'),
+        ));
     }
-    
+
     /**
      * {@inheritdoc}
      */

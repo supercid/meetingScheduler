@@ -1,21 +1,32 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme edit_form 'form/bootstrap_3_layout.html.twig'%}
+
 {% block body %}
-    <h1>Person edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    <section class="content">
+        <div class="container-fluid">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>{{'Edit Person'|title}}</h2>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                {{ form_start(edit_form) }}
+                                    {{ form_widget(edit_form) }}
+                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 button-demo">
+                                        <a class="btn btn-default pull-left" href="{{ path('person_index') }}">Back</a>
+                                        <input class="btn btn-primary" type="submit" value="Save" />
+                                    </div>
+                                {{ form_end(edit_form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <ul>
-        <li>
-            <a href="{{ path('person_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
