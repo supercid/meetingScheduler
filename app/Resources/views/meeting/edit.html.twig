@@ -13,7 +13,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>{{'Create new Meeting'|title}}</h2>
+                        <h2>{{'Edit Meeting'|title}}</h2>
                     </div>
                     <div class="body">
                         <div class="row clearfix">
@@ -23,9 +23,12 @@
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 button-demo">
                                 <a class="btn btn-default pull-left" href="{{ path('meeting_index') }}">Back</a>
-                                <input class="btn btn-primary" type="submit" value="Create" />
+                                <input class="btn btn-primary" type="submit" value="Save" />
                             </div>
                             {{ form_end(edit_form) }}
+                            {{ form_start(delete_form) }}
+                                <input type="submit" value="Delete" class="btn btn-danger pull-right">
+                            {{ form_end(delete_form) }}
                         </div>
                     </div>
                 </div>
