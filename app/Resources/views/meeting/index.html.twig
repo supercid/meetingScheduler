@@ -1,10 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-     <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
-{% endblock %}
-
 {% block body %}
     <section class="content">
         <div class="container-fluid">
@@ -15,11 +10,6 @@
             </div>
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="body table-responsive">
-                            {% include '@FullCalendar/Calendar/calendar.html.twig' %}
-                        </div>
-                    </div>
                     <div class="card">
                         <div class="body table-responsive">
                             <table class="table table-striped">
@@ -59,7 +49,6 @@
                                 {% endfor %}
                                 </tbody>
                             </table>
-                            <div id='calendar'></div>
                         </div>
                     </div>
                 </div>
@@ -71,29 +60,5 @@
         </button>
         </div>
     </section>
-
-{% endblock %}
-{% block javascripts %}
-
-    {# {{ parent() }} #}
-    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js') }}"></script>
-
-    <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/node-waves/waves.js') }}"></script>
-
-    <!-- Custom Js -->
-    <script src="{{ asset('assets/vendor/adminbsb-materialdesign/js/admin.js') }}"></script>
-    <script src="{{ asset('assets/vendor/adminbsb-materialdesign/js/pages/index.js') }}"></script>
-
-    <!-- Demo Js -->
-    <script src="{{ asset('assets/vendor/adminbsb-materialdesign/js/demo.js') }}"></script>
-
-    <!-- DateTimePicker -->
-    <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
 
 {% endblock %}
