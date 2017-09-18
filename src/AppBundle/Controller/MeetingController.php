@@ -88,7 +88,7 @@ class MeetingController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('meeting_edit', array('id' => $meeting->getId()));
+            return $this->redirectToRoute('meeting_show', array('id' => $meeting->getId()));
         }
 
         return $this->render('meeting/edit.html.twig', array(
