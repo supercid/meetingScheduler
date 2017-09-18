@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class MeetingType extends AbstractType
 {
@@ -16,8 +17,26 @@ class MeetingType extends AbstractType
     {
         $builder
         ->add('name')
-        ->add('startTime')
-        ->add('endTime')
+        ->add('startTime', DateTimeType::class, array(
+                'label'     => 'Start Time',
+                'html5'     => false,
+                'required'  => true,
+                'widget'    => 'single_text',
+                'attr'      => array(
+                                    'class' => 'datepicker',
+                                    'type'  => 'text'
+                                )
+            ))
+        ->add('endTime', DateTimeType::class, array(
+                'label'     => 'End Time',
+                'html5'     => false,
+                'required'  => true,
+                'widget'    => 'single_text',
+                'attr'      => array(
+                                    'class' => 'datepicker',
+                                    'type'  => 'text'
+                                )
+        ))
         ->add('location')
         ->add('description')
         ->add('participants', EntityType::class, array(
