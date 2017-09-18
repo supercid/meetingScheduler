@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
-{% form_theme form 'form/bootstrap_3_layout.html.twig' %}
+{% form_theme form
+    'form/bootstrap_3_layout.html.twig'
+    'meeting.html.twig'
+    'jquery.collection.html.twig'
+%}
 
 {% block body %}
 
@@ -39,6 +43,8 @@
     <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/momentjs/moment.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/momentjs/moment.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/meeting.js') }}"></script>
     <script>
         $('.datepicker').bootstrapMaterialDatePicker({
         format: 'YYYY-MM-DD h:mm:ss',

@@ -5,8 +5,9 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class MeetingType extends AbstractType
 {
@@ -39,12 +40,22 @@ class MeetingType extends AbstractType
         ))
         ->add('location')
         ->add('description')
-        ->add('participants', EntityType::class, array(
-                'class' => 'AppBundle:Person',
-                'choice_label' => 'name',
-                'mapped' => false
-            )
-        );
+        ->add('participants',  CollectionType::class, array(
+                'entry_type'   => PersonType::class,
+                'label' => 'Add Participants',
+                'entry_options' => array(
+                    'label' => ' '
+                ),
+                'allow_add' => true,
+                'allow_delete' => true,
+                'prototype' => true,
+                'prototype_name' => '__person__',
+                'by_reference' => false,
+                'attr'      => array(
+                'class' => "form-pattern-collection",
+                )
+            ))
+        ;
     }
 
     /**

@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
-{% form_theme edit_form 'form/bootstrap_3_layout.html.twig' %}
+{% form_theme edit_form
+    'form/bootstrap_3_layout.html.twig'
+    'meeting.html.twig'
+    'jquery.collection.html.twig'
+%}
 
 {% block body %}
 
@@ -19,7 +23,7 @@
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 button-demo">
                                 <a class="btn btn-default pull-left" href="{{ path('meeting_index') }}">Back</a>
-                                <input class="btn btn-primary" type="submit" value="Save" />
+                                <input class="btn btn-primary" type="submit" value="Create" />
                             </div>
                             {{ form_end(edit_form) }}
                         </div>
@@ -39,6 +43,8 @@
     <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/momentjs/moment.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/momentjs/moment.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/vendor/adminbsb-materialdesign/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/meeting.js') }}"></script>
     <script>
         $('.datepicker').bootstrapMaterialDatePicker({
         format: 'YYYY-MM-DD h:mm:ss',

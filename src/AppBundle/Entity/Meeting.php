@@ -57,7 +57,7 @@ class Meeting
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Person")
+     * @ORM\ManyToMany(targetEntity="Person", cascade={"persist"})
      * @ORM\JoinTable(name="meeting_person",
      *      joinColumns={@ORM\JoinColumn(name="meeting_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="person_id", referencedColumnName="id", unique=true, nullable=true)}

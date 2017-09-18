@@ -1,0 +1,32 @@
+{% block appbundle_meeting_label %}{% endblock %}
+{% block appbundle_meeting_errors %}{% endblock %}
+
+{% block appbundle_meetingpattern_label %}{% endblock %}
+{% block appbundle_meetingpattern_errors %}{% endblock %}
+
+{% block appbundle_meetingpattern_row %}
+  <div class="col-md-2 meeting-pattern">
+    {{ form_label(form) }}
+    {{ form_errors(form) }}
+    {{ form_widget(form) }}
+  </div>
+{% endblock %}
+
+{% block appbundle_meetingpattern_widget %}
+
+    {{ form_widget(form) }}
+
+    <p class="text-center">
+        <a href="#" class="collection-up btn btn-default">&lt;</a>
+        <a href="#" class="collection-remove btn btn-danger">
+            {# <i class="fa fa-trash-o" aria-hidden="true"></i> #}
+            <i class="material-icons" aria-hidden="true">add_circle</i>
+        </a>
+        <a href="#" class="collection-add btn btn-success">+</a>
+        <a href="#" class="collection-down btn btn-default">&gt;</a>
+    </p>
+{% endblock %}
+
+{% block appbundle_meeting_widget %}
+    {{ form_widget(form) }}
+{% endblock %}
