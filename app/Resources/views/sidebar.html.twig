@@ -1,0 +1,74 @@
+{% set route = app.request.attributes.get('_route') %}
+
+{# Initializing variables to store route #}
+{% set scheduleMeeting = ''%}
+{% set registerPeople = ''%}
+{% set home = '' %}
+
+{% if route == 'meeting_index'%}
+    {% set scheduleMeeting = 'active' %}
+{% endif %}
+
+{% if route == 'person_index'%}
+    {% set registerPeople = 'active' %}
+{% endif %}
+
+{% if route == 'homepage'%}
+    {% set home = 'active' %}
+{% endif %}
+
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="image">
+            <img src="{{ asset('assets/vendor/adminbsb-materialdesign/images/user.png')}}" width="48" height="48" alt="User" />
+            </div>
+        </div>
+        <!-- #User Info -->
+
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="header">Main Menu</li>
+
+                <li class="{{home}}">
+                    <a href="{{ path('homepage') }}" >
+                        <i class="material-icons">home</i>
+                        <span>Home</span>
+                    </a>
+                </li>
+
+                <li class="{{scheduleMeeting}}">
+                    <a href="{{path('meeting_index')}}" >
+                        <i class="material-icons">date_range</i>
+                        <span>Schedule Meeting</span>
+                    </a>
+                </li>
+
+                <li class="{{registerPeople}}">
+                    <a href="{{path('person_index')}}" >
+                        <i class="material-icons">group</i>
+                        <span>Register People</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+
+        <!-- Footer -->
+        <div class="legal">
+            <div class="copyright">
+                &copy; 2017 <a href="https://www.supercid.com.br">Cid Lopes</a>
+            </div>
+            <div class="version">
+                <b>Version: </b> 0.0.1a
+            </div>
+        </div>
+        <!-- #Footer -->
+
+    </aside>
+    <!-- #END# Left Sidebar -->
+</section>
